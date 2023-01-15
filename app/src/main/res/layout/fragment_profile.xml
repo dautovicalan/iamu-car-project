@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/paddingFragments"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.ProfileFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:src="@drawable/ic_circle_account"
+            android:scaleType="fitXY"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:text="@string/your_profile" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/textSize"
+                android:textStyle="bold"
+                android:text="@string/first_name_title" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/enter_first_name"
+                style="@style/TextInputLayout"
+                app:startIconDrawable="@drawable/ic_circle_account">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtUserFirstName"
+                    android:layout_width="match_parent"
+                    style="@style/TextInputEditText"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/textSize"
+                android:textStyle="bold"
+                android:text="@string/last_name_title" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/enter_last_name"
+                style="@style/TextInputLayout"
+                app:startIconDrawable="@drawable/ic_circle_account">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtUserLastName"
+                    android:layout_width="match_parent"
+                    style="@style/TextInputEditText"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/textSize"
+                android:textStyle="bold"
+                android:text="@string/your_email_cannot_be_changed_maybe_in_other_version" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:enabled="false"
+                style="@style/TextInputLayout"
+                app:startIconDrawable="@drawable/ic_circle_account">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtUserEmail"
+                    android:layout_width="match_parent"
+                    style="@style/TextInputEditText"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnUpdateProfile"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/marginTop"
+            android:layout_height="wrap_content"
+            android:text="@string/update_profile"
+            style="@style/ButtonGreen" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnOpenChangePasswordDialog"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/marginTop"
+            android:layout_height="wrap_content"
+            android:text="@string/change_password"
+            style="@style/ButtonGreen" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnResetPassword"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/marginTop"
+            android:layout_height="wrap_content"
+            android:text="@string/reset_password"
+            style="@style/ButtonGreen" />
+
+    </LinearLayout>
+
+
+</ScrollView>

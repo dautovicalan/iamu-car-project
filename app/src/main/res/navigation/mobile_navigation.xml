@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.alan.alancars.ui.profile.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.alan.alancars.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_add_new_car"
+            app:destination="@id/nav_add_new_car" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_add_new_car"
+        android:name="com.alan.alancars.ui.home.AddNewCarFragment"
+        android:label="@string/menu_add_new_car"
+        tools:layout="@layout/fragment_add_new_car" >
+        <action
+            android:id="@+id/action_nav_add_new_car_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_maps"
+        android:name="com.alan.alancars.ui.maps.MapsFragment"
+        android:label="@string/menu_maps"
+        tools:layout="@layout/fragment_maps" />
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.alan.alancars.ui.about.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about" />
+
+</navigation>

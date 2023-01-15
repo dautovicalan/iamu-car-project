@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SplashScreenActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_to_alan_cars"
+        android:textStyle="bold"
+        android:textSize="@dimen/loadingText"
+        android:textColor="@color/primary_color"
+        android:layout_marginTop="@dimen/marginTop"
+        android:textAlignment="center"/>
+
+    <ImageView
+        android:layout_marginTop="@dimen/marginTopMain"
+        android:id="@+id/ivSplash"
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:src="@drawable/mercedes" />
+
+    <TextView
+        android:id="@+id/tvSplash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:padding="@dimen/paddingFragments"
+        android:textStyle="bold"
+        android:textSize="@dimen/loadingText"
+        android:text="@string/please_wait_application_is_loading" />
+
+</LinearLayout>

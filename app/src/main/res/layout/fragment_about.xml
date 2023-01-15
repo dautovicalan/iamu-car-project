@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.about.AboutFragment">
+
+
+    <ImageView
+        android:id="@+id/ivAbout"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:src="@drawable/mercedes" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="@dimen/loadingText"
+        android:text="@string/about_app" />
+
+    <TextView
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_in_vitae_sem_eu_ligula_blandit_suscipit_phasellus_aliquet_suscipit_cursus_pellentesque_tempus_ex_quis_augue_semper_luctus_aliquam_porttitor_mi_nunc_efficitur_iaculis_velit_porta_vel_etiam_in_leo_ultricies_laoreet_est_et_lacinia_turpis_in_non_consequat_leo_vel_mollis_ante_fusce_non_porta_nunc_vivamus_gravida_augue_sapien_eget_sagittis_felis_placerat_sit_amet"
+        android:textAlignment="center"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/primary_color"
+        android:layout_marginTop="@dimen/marginTop"
+        android:textStyle="bold"
+        android:text="@string/developed_by_alan_dautovic_3rp1" />
+
+</LinearLayout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/paddingFragments"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="@string/login_activity"
+        style="@style/Title" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/TextInputLayout"
+        android:hint="@string/please_enter_your_email"
+        app:startIconDrawable="@drawable/ic_circle_account">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtInputEmail"
+            android:layout_width="match_parent"
+            style="@style/TextInputEditText"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/TextInputLayout"
+        android:hint="@string/password"
+        app:startIconDrawable="@drawable/ic_lock">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtInputPassword"
+            android:layout_width="match_parent"
+            android:inputType="textPassword"
+            style="@style/TextInputEditText"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_marginTop="@dimen/marginTop"
+        android:id="@+id/tvNewUserPrompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/are_you_a_new_user"
+        android:textSize="@dimen/textSize"
+        android:textStyle="bold"
+        android:textAlignment="textEnd"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="@dimen/marginTop"
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_login"
+        style="@style/ButtonGreen" />
+
+    <RelativeLayout
+        android:id="@+id/loadingPanel"
+        android:layout_width="match_parent"
+        android:visibility="invisible"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true" />
+    </RelativeLayout>
+
+</LinearLayout>
