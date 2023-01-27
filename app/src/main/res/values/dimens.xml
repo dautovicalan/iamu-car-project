@@ -19,4 +19,8 @@
     <dimen name="loadingText">35sp</dimen>
     <dimen name="recyclerMarginTop">45dp</dimen>
     <dimen name="picture_height">300dp</dimen>
+    <dimen name="pager_padding">10dp</dimen>
+    <dimen name="pager_header">25dp</dimen>
+    <dimen name="tate_width">125dp</dimen>
+    <dimen name="tate_height">100dp</dimen>
 </resources>

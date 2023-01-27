@@ -2,11 +2,13 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="@dimen/paddingFragments"
     xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:padding="@dimen/pager_padding"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
@@ -16,124 +18,108 @@
             android:layout_height="300dp"
             tools:src="@drawable/mercedes" />
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="@dimen/pager_header"
+            android:text="@string/edit_car" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/car_maker" />
-
-            <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="@dimen/marginTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextInputLayout"
+            android:hint="@string/car_maker"
+            app:startIconDrawable="@drawable/baseline_directions_car_24">
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etCarMaker"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Some custom text here later" />
+                style="@style/TextInputEditText"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="@dimen/marginTop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/car_model" />
-
-            <EditText
+            style="@style/TextInputLayout"
+            android:hint="@string/car_model"
+            app:startIconDrawable="@drawable/baseline_view_carousel_24">
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etCarModel"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Some custom text here later" />
+                style="@style/TextInputEditText"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="@dimen/marginTop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/car_class" />
-
-            <EditText
+            style="@style/TextInputLayout"
+            android:hint="@string/car_class"
+            app:startIconDrawable="@drawable/baseline_class_24">
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etCarClass"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Some custom text here later" />
+                style="@style/TextInputEditText"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="@dimen/marginTop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/car_city_mile_per_gallon" />
-
-            <EditText
+            style="@style/TextInputLayout"
+            android:hint="@string/car_city_mile_per_gallon"
+            app:startIconDrawable="@drawable/baseline_location_city_24">
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etCarCityMpg"
-                android:layout_width="match_parent"
                 android:inputType="number"
-                android:layout_height="wrap_content"
-                android:hint="Some custom text here later" />
+                android:layout_width="match_parent"
+                style="@style/TextInputEditText"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="@dimen/marginTop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/car_year" />
-
-            <EditText
+            style="@style/TextInputLayout"
+            android:hint="@string/car_year"
+            app:startIconDrawable="@drawable/baseline_access_time_24">
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etCarYear"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="Some custom text here later" />
+                android:layout_width="match_parent"
+                style="@style/TextInputEditText"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="@dimen/marginTop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/car_price" />
-
-            <EditText
+            style="@style/TextInputLayout"
+            android:hint="@string/car_price"
+            app:startIconDrawable="@drawable/baseline_attach_money_24">
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etCarPrice"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
-                android:hint="Some custom text here later" />
-
-        </LinearLayout>
+                android:layout_width="match_parent"
+                style="@style/TextInputEditText"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginTop="@dimen/marginTop"
             android:id="@+id/btnUpdateCar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_update"
             style="@style/ButtonGreen" />
-
 
     </LinearLayout>
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AlanCars</string>
+    <string name="app_name">Alan Cars d.o.o.</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -40,7 +40,7 @@
     <string name="btn_update">Update Car Information</string>
     <string name="btn_edit">Edit Car Info</string>
     <string name="btn_delete">Delete Car</string>
-    <string name="menu_add_new_car">Add new car</string>
+    <string name="menu_add_new_car">Add New Car</string>
     <string name="btn_create">Create new car</string>
     <string name="please_wait_application_is_loading">Please wait, application is loading...</string>
     <string name="welcome_to_alan_cars">Welcome to Alan Cars</string>
@@ -100,5 +100,6 @@
     <string name="first_name_title">First Name:</string>
     <string name="last_name_title">Last name:</string>
     <string name="enter_last_name">Enter last name...</string>
+    <string name="edit_car">Edit Car</string>
 
 </resources>
