@@ -8,10 +8,8 @@ import java.net.HttpURLConnection
 import java.nio.file.Files
 import java.nio.file.Paths
 
-
 fun downloadImageAndStore(context: Context, url: String): String? {
-    //https://apod.nasa.gov/apod/image/1705/HebesChasma_esa_1024.jpg
-    val filename = url.substring(url.lastIndexOf("/") + 1) //HebesChasma_esa_1024.jpg
+    val filename = url.substring(url.lastIndexOf("/") + 1)
     val file = createFile(context, filename)
     try{
         val con : HttpURLConnection = createGetHttpUrlConnection(url)

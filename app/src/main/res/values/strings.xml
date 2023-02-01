@@ -101,5 +101,13 @@
     <string name="last_name_title">Last name:</string>
     <string name="enter_last_name">Enter last name...</string>
     <string name="edit_car">Edit Car</string>
+    <string name="your_email_will_be_displayed_here">Your email will be displayed here!</string>
+    <string name="rationale_permission">Application cannot function without Location Permission</string>
+    <string name="car_lover">Hello Car Lover! Setup Name in Profile Settings</string>
+    <string name="yes">Yes</string>
+    <string name="daily_not_title">Go visit the app</string>
+    <string name="daily_not_content">Do not forget to constantly log in in our application hehe</string>
+    <string name="ok">Ok</string>
+    <string name="permission_granted">Permission successfully Granted</string>
 
 </resources>

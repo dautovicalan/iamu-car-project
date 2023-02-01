@@ -103,6 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:enabled="false"
+                android:hint="@string/your_email_will_be_displayed_here"
                 style="@style/TextInputLayout"
                 app:startIconDrawable="@drawable/ic_circle_account">
                 <com.google.android.material.textfield.TextInputEditText

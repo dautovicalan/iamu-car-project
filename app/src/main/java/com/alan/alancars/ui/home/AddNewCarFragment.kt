@@ -111,13 +111,9 @@ class AddNewCarFragment : Fragment() {
         }
     }
 
-
-
     private val imageResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
         if (it.resultCode == Activity.RESULT_OK && it.data != null){
-            if (picturePath != null) {
-                File(picturePath).delete()
-            }
+
             val dir = context?.applicationContext?.getExternalFilesDir(null)
             val file = File(dir, File.separator.toString() + UUID.randomUUID().toString() + ".jpg")
 

@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.alan.alancars.HomeMainActivity
 import com.alan.alancars.R
 import com.alan.alancars.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -43,7 +44,7 @@ class ProfileFragment : Fragment() {
     private fun displayUserProfile() {
         binding.txtUserEmail.setText(auth.currentUser?.email.toString())
         binding.txtUserFirstName.setText(
-            auth.currentUser?.displayName?.split(" ")?.get(0)?.trim() ?: getString(R.string.first_name))
+          auth.currentUser?.displayName?.split(" ")?.get(0)?.trim() ?: getString(R.string.first_name))
         binding.txtUserLastName.setText(
             auth.currentUser?.displayName?.split(" ")?.get(1)?.trim() ?: getString(R.string.last_name))
     }
@@ -66,8 +67,8 @@ class ProfileFragment : Fragment() {
         )
         builder.setTitle("Change Password")
         val viewInflated: View = LayoutInflater.from(context)
-            .inflate(com.alan.alancars.R.layout.change_password, view as ViewGroup?, false)
-        val input = viewInflated.findViewById<View>(com.alan.alancars.R.id.txtInputNewPassword) as EditText
+            .inflate(R.layout.change_password, view as ViewGroup?, false)
+        val input = viewInflated.findViewById<View>(R.id.txtInputNewPassword) as EditText
         builder.setView(viewInflated)
 
         builder.setPositiveButton(
@@ -130,6 +131,7 @@ class ProfileFragment : Fragment() {
                     if (it.isSuccessful){
                         Toast.makeText(requireContext(), getString(R.string.profile_updated), Toast.LENGTH_SHORT)
                             .show()
+                        refreshActivity()
                     } else {
                         Toast.makeText(
                             requireContext(),
@@ -139,6 +141,13 @@ class ProfileFragment : Fragment() {
                             .show()
                     }
                 }
+        }
+    }
+
+    private fun refreshActivity(){
+        val homeActivity: HomeMainActivity = activity as HomeMainActivity
+        if (homeActivity != null) {
+            homeActivity.refreshData()
         }
     }
 

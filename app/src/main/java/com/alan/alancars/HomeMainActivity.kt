@@ -1,13 +1,20 @@
 package com.alan.alancars
 
+import android.Manifest
+import android.Manifest.permission.ACCESS_FINE_LOCATION
+import android.Manifest.permission.READ_CONTACTS
 import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Looper
+import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
@@ -22,6 +29,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.alan.alancars.databinding.ActivityHomeMainBinding
 import com.alan.alancars.framework.callDelayed
@@ -29,7 +37,10 @@ import com.alan.alancars.framework.getBooleanPreference
 import com.alan.alancars.framework.isOnline
 import com.alan.alancars.framework.startActivity
 import com.alan.alancars.model.DailyReminder
+import com.google.android.gms.location.*
 import com.google.firebase.auth.FirebaseAuth
+import com.vmadalin.easypermissions.EasyPermissions
+import com.vmadalin.easypermissions.dialogs.SettingsDialog
 import kotlin.random.Random
 
 private const val DELAY = 3000L
@@ -38,11 +49,17 @@ const val DATA_IMPORTED = "com.alan.alancars.data_imported"
 const val CHANNEL_ID = "channel01"
 const val notificationId = 101
 
-class HomeMainActivity : AppCompatActivity() {
+class HomeMainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
+
+    companion object {
+        const val PERMISSION_LOCATION_REQUEST_CODE = 1
+    }
+
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityHomeMainBinding
     private lateinit var auth: FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,9 +83,47 @@ class HomeMainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+
         createNotificationChannel()
         setNavHeader(navView)
         callCarService()
+        requestLocationPermission()
+    }
+
+    override fun onPermissionsDenied(requestCode: Int, perms: List<String>) {
+        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)){
+            SettingsDialog.Builder(this).build().show()
+        } else {
+            requestLocationPermission()
+        }
+    }
+
+    override fun onPermissionsGranted(requestCode: Int, perms: List<String>) {
+        Toast.makeText(
+            this,
+            getString(R.string.permission_granted),
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
+    }
+
+    private fun requestLocationPermission(){
+        EasyPermissions.requestPermissions(
+            this,
+            getString(R.string.rationale_permission),
+            PERMISSION_LOCATION_REQUEST_CODE,
+            Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION
+        )
     }
 
     private fun createNotificationChannel(){
@@ -84,6 +139,11 @@ class HomeMainActivity : AppCompatActivity() {
         }
     }
 
+    fun refreshData(){
+        val navView: NavigationView = binding.navView
+        setNavHeader(navView)
+    }
+
     private fun setNavHeader(navView: NavigationView) {
         navView.getHeaderView(0)
             .findViewById<TextView>(
@@ -91,7 +151,7 @@ class HomeMainActivity : AppCompatActivity() {
             ).text = auth.currentUser?.email.toString()
         navView.getHeaderView(0)
             .findViewById<TextView>(R.id.tvLoggedUserDisplayName)
-            .text = auth.currentUser?.displayName ?: "Hello Car Lover! Setup Name in Profile Settings"
+            .text = auth.currentUser?.displayName ?: getString(R.string.car_lover)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -124,7 +184,7 @@ class HomeMainActivity : AppCompatActivity() {
             setIcon(R.drawable.ic_baseline_logout_24)
             setMessage(getString(R.string.logout_prompt))
             setCancelable(true)
-            setPositiveButton("Yes") { _, _ ->
+            setPositiveButton(getString(R.string.yes)) { _, _ ->
                 run {
                     auth.signOut()
                     Intent(this@HomeMainActivity, LoginActivity::class.java).also {
@@ -157,8 +217,9 @@ class HomeMainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        setAlarm(DailyReminder(Random.nextInt(0, 100), "Go visit the app", "" +
-                "Do not forget to constantly log in in our application hehe"))
+        setAlarm(DailyReminder(Random.nextInt(0, 100), getString(R.string.daily_not_title),
+            getString(R.string.daily_not_content)
+        ))
     }
 
     private fun setAlarm(dailyReminder: DailyReminder) {
@@ -178,7 +239,7 @@ class HomeMainActivity : AppCompatActivity() {
             setIcon(R.drawable.exit)
             setMessage(getString(R.string.exit_promp))
             setCancelable(true)
-            setPositiveButton("Ok") { _, _ -> finish() }
+            setPositiveButton(getString(R.string.ok)) { _, _ -> finish() }
             setNegativeButton(getString(R.string.cancle), null)
             show()
         }
