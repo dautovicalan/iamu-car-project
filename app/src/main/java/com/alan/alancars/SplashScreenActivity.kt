@@ -1,11 +1,11 @@
 package com.alan.alancars
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.alan.alancars.databinding.ActivitySplashScreenBinding
+import com.alan.alancars.framework.applyAnimation
 import com.alan.alancars.framework.callDelayed
-import com.alan.alancars.framework.*
 import com.google.firebase.auth.FirebaseAuth
 
 

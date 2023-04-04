@@ -22,7 +22,7 @@ class AlarmReceiver : BroadcastReceiver() {
             tapResultIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
-        val notification = context?.let {
+        val notification = context.let {
             NotificationCompat.Builder(it, CHANNEL_ID)
                 .setContentTitle(dailyReminder?.title)
                 .setContentText(dailyReminder?.content)
@@ -32,7 +32,7 @@ class AlarmReceiver : BroadcastReceiver() {
                 .setContentIntent(pendingIntent)
                 .build()
         }
-        notificationManager = context?.let { NotificationManagerCompat.from(it) }
+        notificationManager = context.let { NotificationManagerCompat.from(it) }
         notification?.let { dailyReminder?.let { it1 -> notificationManager?.notify(it1._id, it) } }
     }
 }

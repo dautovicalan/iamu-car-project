@@ -1,20 +1,13 @@
 package com.alan.alancars.adapter
 
-import android.app.Activity
 import android.content.ContentUris
 import android.content.ContentValues
 import android.content.Context
-import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.TextView
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.RecyclerView
 import com.alan.alancars.CAR_PROVIDER_CONTENT_URI
@@ -23,14 +16,7 @@ import com.alan.alancars.R
 import com.alan.alancars.model.Car
 import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.io.ByteArrayOutputStream
 import java.io.File
-import java.io.FileOutputStream
-import java.util.*
 
 private const val IMAGE_TYPE = "image/*"
 

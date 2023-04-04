@@ -1,12 +1,12 @@
 package com.alan.alancars
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.alan.alancars.databinding.ActivityRegisterBinding
+import com.alan.alancars.framework.startActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.alan.alancars.framework.*
 
 class RegisterActivity : AppCompatActivity() {
 

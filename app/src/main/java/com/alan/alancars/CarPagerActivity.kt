@@ -5,9 +5,9 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import com.alan.alancars.adapter.CarPagerAdapter
 import com.alan.alancars.databinding.ActivityCarPagerBinding
 import com.alan.alancars.framework.fetchItems
@@ -59,10 +59,10 @@ class CarPagerActivity : AppCompatActivity(), PictureOpenableActivity {
     private val imageResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
         if (it.resultCode == Activity.RESULT_OK && it.data != null){
 
-            val dir = this?.applicationContext?.getExternalFilesDir(null)
+            val dir = this.applicationContext?.getExternalFilesDir(null)
             val file = File(dir, File.separator.toString() + UUID.randomUUID().toString() + ".jpg")
 
-            this?.contentResolver?.openInputStream(it.data?.data as Uri).use { inputStream ->
+            this.contentResolver?.openInputStream(it.data?.data as Uri).use { inputStream ->
                 FileOutputStream(file).use { outputStream ->
                     val bitmap = BitmapFactory.decodeStream(inputStream)
                     val bos = ByteArrayOutputStream()

@@ -6,7 +6,6 @@ import android.util.Log
 import com.alan.alancars.CAR_PROVIDER_CONTENT_URI
 import com.alan.alancars.CarReceiver
 import com.alan.alancars.framework.sendBroadcast
-import com.alan.alancars.handler.downloadImageAndStore
 import com.alan.alancars.model.Car
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -39,7 +38,7 @@ class CarFetcher(private val context: Context) {
                 call: Call<List<CarItem>>,
                 response: Response<List<CarItem>>
             ) {
-                response?.body()?.let { populateItems(it) }
+                response.body()?.let { populateItems(it) }
             }
             override fun onFailure(call: Call<List<CarItem>>, t: Throwable) {
                 Log.e(javaClass.name, t.toString(), t)
